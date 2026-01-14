@@ -5,6 +5,13 @@ import { connectMongo } from "./config/mongo";
 
 const PORT = process.env.PORT || 3003;
 
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "OK",
+    service: "hotel-admin-service",
+  });
+});
+
 const startServer = async () => {
   await connectMongo();
 
@@ -12,5 +19,6 @@ const startServer = async () => {
     console.log(`Hotel Admin Service running on port ${PORT}`);
   });
 };
+
 
 startServer();
