@@ -3,7 +3,7 @@ dotenv.config();
 import app from "./app";
 import { connectMongo } from "./config/mongo";
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3004;
 
 const startServer = async () => {
   await connectMongo();
