@@ -13,7 +13,7 @@ app.get("/health", (req, res) => {
 });
 
 const startServer = async () => {
-  await connectMongo();
+  connectMongo();
 
   app.listen(PORT, () => {
     console.log(`Notification Service running on port ${PORT}`);
