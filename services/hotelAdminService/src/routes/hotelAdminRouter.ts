@@ -3,6 +3,7 @@ import { client } from "../config/mongo";
 import { verifyToken } from "../middlewares/authMiddleware";
 import { requireAdmin } from "../middlewares/roleMiddleware";
 import { ObjectId } from "mongodb";
+import { createRoomWithMLPrice } from "../controller/hotelAdminController";
 
 const router = Router();
 
@@ -142,5 +143,8 @@ router.post(
     }
   }
 );
+
+router.post("/rooms/ml", createRoomWithMLPrice);
+
 
 export default router;

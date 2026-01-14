@@ -28,4 +28,19 @@ router.post("/", verifyToken, async (req, res) => {
   res.status(201).json({ message: "Notification created" });
 });
 
+router.post("/booking-created", async (req, res) => {
+  const { bookingId, userId, hotelId, roomId, from, to } = req.body;
+
+  await notificationsCol.insertOne({
+    userId,
+    type: "BOOKING_CREATED",
+    message: `Your booking is confirmed from ${from} to ${to}`,
+    read: false,
+    createdAt: new Date()
+  });
+
+  res.json({ status: "consumed" });
+});
+
+
 export default router;

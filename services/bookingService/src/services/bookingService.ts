@@ -1,5 +1,6 @@
 import { ObjectId } from "mongodb";
 import { client } from "../config/mongo";
+import { publishBookingEvent } from "../queue/rabbit";
 
 type CreateBookingParams = {
   userId: string;
@@ -70,6 +71,18 @@ export const createBooking = async (params: CreateBookingParams) => {
   };
 
   const result = await bookings.insertOne(booking);
+
+    await publishBookingEvent({
+        type: "BOOKING_CREATED",
+        bookingId: result.insertedId.toString(),
+        userId,
+        hotelId,
+        roomId,
+        from,
+        to,
+        totalPrice
+    });
+
 
   return {
     bookingId: result.insertedId,
