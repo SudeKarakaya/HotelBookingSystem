@@ -8,13 +8,13 @@ It demonstrates distributed system design, API Gateway, message queues, backgrou
 Note: Services are designed for local development and cloud deployment experiments.
 Some services were tested locally due to cloud deployment limitations.
 
-Frontend:	http://localhost:5173
-API Gateway: http://localhost:8080
-Hotel Search Service:	http://localhost:3001
-Booking Service	http://localhost:3002
-Notification Service:	http://localhost:3003
-Hotel Admin Service: http://localhost:3004
-ML Price Service:	http://localhost:5000
+Frontend:http://localhost:5173
+API Gateway:http://localhost:8080
+Hotel Search Service:http://localhost:3001
+Booking Service:http://localhost:3002
+Notification Service:http://localhost:3003
+Hotel Admin Service:http://localhost:3004
+ML Price Service:http://localhost:5000
 
  # System Architecture & Design
 
